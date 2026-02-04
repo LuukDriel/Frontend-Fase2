@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StreetfoodSpotter 🍔
 
-## Getting Started
+Een moderne Next.js applicatie voor het ontdekken en delen van de beste streetfood spots in Nederland.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- 🗺️ **Spot Overzicht**: Bekijk alle streetfood spots in een overzichtelijk grid
+- 🔍 **Zoekfunctie**: Zoek spots op naam of locatie
+- ➕ **Spots Toevoegen**: Voeg nieuwe streetfood spots toe met afbeeldingen en media
+- 📱 **Responsive Design**: Werkt perfect op desktop, tablet en mobiel
+- 🎨 **Moderne UI**: Gebouwd met Tailwind CSS en mooie animaties
+- 📍 **Media Integratie**: TikTok embeds en Google Maps links
+- 💾 **SQLite Database**: Lokale database met Better-SQLite3
+
+## 🚀 Installatie
+
+1. **Clone de repository**
+   ```bash
+   git clone <repository-url>
+   cd Frontend-Fase2/NextJS/fdnxt01
+   ```
+
+2. **Installeer dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start de development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open in browser**
+   - Navigeer naar [http://localhost:3000](http://localhost:3000)
+
+## 📁 Project Structuur
+
+```
+fdnxt01/
+├── src/
+│   ├── app/                      # Next.js App Router
+│   │   ├── page.tsx             # Homepage
+│   │   ├── layout.tsx           # Root layout
+│   │   ├── globals.css          # Global styles
+│   │   ├── spots/               # Spots pagina's
+│   │   ├── add-spot/            # Spot toevoegen
+│   │   └── actions.ts           # Server Actions
+│   ├── Components/              # React Componenten
+│   │   ├── Navigation.tsx       # Navigatie menu
+│   │   ├── Footer.tsx           # Footer
+│   │   ├── SpotCard.tsx         # Spot card component
+│   │   ├── SearchBar.tsx        # Zoekbalk
+│   │   └── AddSpotForm.tsx      # Formulier component
+│   └── lib/                     # Utilities en database
+│       ├── db.ts                # Database functies
+│       ├── seed.ts              # Seed data
+│       └── utils.ts             # Helper functies
+├── public/                      # Statische bestanden
+├── streetfood.db               # SQLite database
+└── package.json                # Dependencies
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🗄️ Database Schema
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sql
+CREATE TABLE spots (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  naam TEXT NOT NULL,
+  soort_eten TEXT NOT NULL,
+  locatie TEXT NOT NULL,
+  omschrijving TEXT NOT NULL,
+  afbeelding_url TEXT NOT NULL,
+  tiktok_url TEXT,
+  google_maps_url TEXT
+);
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 Technologieën
 
-## Learn More
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS 4
+- **Database**: SQLite met Better-SQLite3
+- **TypeScript**: Voor type safety
+- **React**: Server en Client Components
 
-To learn more about Next.js, take a look at the following resources:
+## ✅ Beoordelingscriteria Checklist
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- ✅ SQLite database correct opgezet en gevuld met minimaal 5 spots
+- ✅ Duidelijke navigatie die werkt op alle apparaten
+- ✅ Homepage met uitleg, animatie en call-to-action
+- ✅ Spot overzicht met cards inclusief TikTok-embed of Maps-link
+- ✅ Zoekfunctie die correct zoekt via database
+- ✅ Detailpagina met juiste gegevens en media
+- ✅ Toevoegen formulier met validatie
+- ✅ Tailwind CSS gebruikt met aantrekkelijke layout
+- ✅ Responsive design (mobiel + desktop)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔧 Development
 
-## Deploy on Vercel
+```bash
+# Development server starten
+npm run dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Build voor productie
+npm run build
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Productie server starten
+npm start
+```
+
+---
+
+**Gemaakt met ❤️ voor streetfood liefhebbers!** 🌮🍔🍜
