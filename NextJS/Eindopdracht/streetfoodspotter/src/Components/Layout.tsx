@@ -28,7 +28,7 @@ export default function Layout({ children }: LayoutProps) {
                                 Home
                             </Link>
                             <Link
-                                href="/pages/spots"
+                                href="/spots"
                                 className="text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
                             >
                                 Spots
@@ -37,7 +37,7 @@ export default function Layout({ children }: LayoutProps) {
                                 href="/about"
                                 className="text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
                             >
-                                About Us
+                                Over Ons
                             </Link>
                             <Link
                                 href="/contact"
@@ -50,10 +50,10 @@ export default function Layout({ children }: LayoutProps) {
                         {/* CTA Button */}
                         <div className="hidden md:block">
                             <Link
-                                href="/pages/spots"
+                                href="/spots"
                                 className="px-6 py-2 bg-linear-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-200"
                             >
-                                Find Spots
+                                Vind Spots
                             </Link>
                         </div>
 
@@ -78,7 +78,7 @@ export default function Layout({ children }: LayoutProps) {
             </nav>
 
             {/* Main Content */}
-            <main className="grow">
+            <main className="flex-grow">
                 {children}
             </main>
 
@@ -92,13 +92,13 @@ export default function Layout({ children }: LayoutProps) {
                                 🍔 Streetfoodspotter
                             </h3>
                             <p className="text-gray-400 text-sm">
-                                Discover the best street food near you. From food trucks to market stalls.
+                                Ontdek de beste street food bij jou in de buurt. Van foodtrucks tot marktkraampjes.
                             </p>
                         </div>
 
                         {/* Quick Links */}
                         <div>
-                            <h4 className="font-semibold mb-4 text-orange-400">Quick Links</h4>
+                            <h4 className="font-semibold mb-4 text-orange-400">Snelle Links</h4>
                             <ul className="space-y-2 text-sm">
                                 <li>
                                     <Link href="/" className="text-gray-400 hover:text-orange-400 transition-colors">
@@ -106,13 +106,13 @@ export default function Layout({ children }: LayoutProps) {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/pages/spots" className="text-gray-400 hover:text-orange-400 transition-colors">
-                                        All Spots
+                                    <Link href="/spots" className="text-gray-400 hover:text-orange-400 transition-colors">
+                                        Alle Spots
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/about" className="text-gray-400 hover:text-orange-400 transition-colors">
-                                        About us
+                                        Over Ons
                                     </Link>
                                 </li>
                                 <li>
@@ -125,12 +125,12 @@ export default function Layout({ children }: LayoutProps) {
 
                         {/* Categories */}
                         <div>
-                            <h4 className="font-semibold mb-4 text-orange-400">Categories</h4>
+                            <h4 className="font-semibold mb-4 text-orange-400">Categorieën</h4>
                             <ul className="space-y-2 text-sm">
                                 <li className="text-gray-400">🍕 Pizza</li>
                                 <li className="text-gray-400">🌮 Tacos</li>
                                 <li className="text-gray-400">🍔 Burgers</li>
-                                <li className="text-gray-400">🍜 Asian</li>
+                                <li className="text-gray-400">🍜 Aziatisch</li>
                             </ul>
                         </div>
 
@@ -140,20 +140,20 @@ export default function Layout({ children }: LayoutProps) {
                             <ul className="space-y-2 text-sm text-gray-400">
                                 <li>📧 info@streetfoodspotter.nl</li>
                                 <li>📱 +31 6 12345678</li>
-                                <li>📍 Amsterdam, Netherlands</li>
+                                <li>📍 Amsterdam, Nederland</li>
                             </ul>
                         </div>
                     </div>
 
                     {/* Bottom Bar */}
                     <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-                        <p>&copy; 2026 Streetfoodspotter. All rights reserved.</p>
+                        <p>&copy; 2026 Streetfoodspotter. Alle rechten voorbehouden.</p>
                         <div className="flex space-x-6 mt-4 md:mt-0">
                             <Link href="/privacy" className="hover:text-orange-400 transition-colors">
                                 Privacy Policy
                             </Link>
                             <Link href="/terms" className="hover:text-orange-400 transition-colors">
-                                Terms
+                                Voorwaarden
                             </Link>
                         </div>
                     </div>
