@@ -64,7 +64,6 @@ export default function AddReviewForm({ spotId, onReviewAdded }: AddReviewFormPr
                 throw new Error(data.error || 'Failed to add review');
             }
             
-            // Reset form
             setFormData({
                 rating: 0,
                 text: '',
@@ -73,7 +72,6 @@ export default function AddReviewForm({ spotId, onReviewAdded }: AddReviewFormPr
             });
             setSuccess(true);
             
-            // Reload the page to show new review
             if (onReviewAdded) {
                 onReviewAdded();
             } else {
@@ -104,7 +102,6 @@ export default function AddReviewForm({ spotId, onReviewAdded }: AddReviewFormPr
             )}
             
             <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Rating */}
                 <div>
                     <label className="block text-gray-700 font-medium mb-2">
                         Rating *
@@ -131,7 +128,6 @@ export default function AddReviewForm({ spotId, onReviewAdded }: AddReviewFormPr
                     </div>
                 </div>
                 
-                {/* Review Text */}
                 <div>
                     <label htmlFor="text" className="block text-gray-700 font-medium mb-2">
                         Your Review *
@@ -148,7 +144,6 @@ export default function AddReviewForm({ spotId, onReviewAdded }: AddReviewFormPr
                     />
                 </div>
                 
-                {/* Name */}
                 <div>
                     <label htmlFor="name" className="flex items-center gap-2 text-gray-700 font-medium mb-2">
                         <User className="w-5 h-5 text-orange-500" />
@@ -166,7 +161,6 @@ export default function AddReviewForm({ spotId, onReviewAdded }: AddReviewFormPr
                     />
                 </div>
                 
-                {/* Location */}
                 <div>
                     <label htmlFor="location" className="flex items-center gap-2 text-gray-700 font-medium mb-2">
                         <MapPin className="w-5 h-5 text-orange-500" />

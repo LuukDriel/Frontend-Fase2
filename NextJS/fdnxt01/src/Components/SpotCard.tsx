@@ -17,7 +17,7 @@ import { Spot, SpotWithExtras } from '@/types/spot';
 
 export interface SpotCardProps {
     spot: Spot | SpotWithExtras;
-    rating?: number;  // Optional - can be passed or from spot.rating
+    rating?: number;
 }
 
 export default function SpotCard({ 

@@ -47,7 +47,6 @@ export default function AddSpotForm() {
             
             const data = await response.json();
             
-            // Redirect to the new spot's page
             router.push(`/pages/spots/${data.id}`);
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Something went wrong');
@@ -70,7 +69,6 @@ export default function AddSpotForm() {
             )}
             
             <div className="space-y-5">
-                {/* Name */}
                 <div>
                     <label htmlFor="naam" className="flex items-center gap-2 text-gray-700 font-medium mb-2">
                         <Store className="w-5 h-5 text-orange-500" />
@@ -88,7 +86,6 @@ export default function AddSpotForm() {
                     />
                 </div>
                 
-                {/* Food Type */}
                 <div>
                     <label htmlFor="soort_eten" className="flex items-center gap-2 text-gray-700 font-medium mb-2">
                         <Utensils className="w-5 h-5 text-orange-500" />
@@ -106,7 +103,6 @@ export default function AddSpotForm() {
                     />
                 </div>
                 
-                {/* Location */}
                 <div>
                     <label htmlFor="locatie" className="flex items-center gap-2 text-gray-700 font-medium mb-2">
                         <MapPin className="w-5 h-5 text-orange-500" />
@@ -124,7 +120,6 @@ export default function AddSpotForm() {
                     />
                 </div>
                 
-                {/* Description */}
                 <div>
                     <label htmlFor="omschrijving" className="flex items-center gap-2 text-gray-700 font-medium mb-2">
                         <FileText className="w-5 h-5 text-orange-500" />
@@ -142,7 +137,6 @@ export default function AddSpotForm() {
                     />
                 </div>
                 
-                {/* Image URL */}
                 <div>
                     <label htmlFor="afbeelding_url" className="flex items-center gap-2 text-gray-700 font-medium mb-2">
                         <Image className="w-5 h-5 text-orange-500" />
@@ -161,7 +155,6 @@ export default function AddSpotForm() {
                     <p className="text-sm text-gray-500 mt-1">Tip: Use Unsplash for free food images</p>
                 </div>
                 
-                {/* TikTok URL (Optional) */}
                 <div>
                     <label htmlFor="tiktok_url" className="flex items-center gap-2 text-gray-700 font-medium mb-2">
                         <Video className="w-5 h-5 text-orange-500" />
@@ -178,7 +171,6 @@ export default function AddSpotForm() {
                     />
                 </div>
                 
-                {/* Google Maps URL (Optional) */}
                 <div>
                     <label htmlFor="google_maps_url" className="flex items-center gap-2 text-gray-700 font-medium mb-2">
                         <Map className="w-5 h-5 text-orange-500" />
