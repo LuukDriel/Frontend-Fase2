@@ -46,7 +46,7 @@ export default function Spots({ spots, initialSearch = '' }: SpotsProps) {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Zoek op naam of locatie (bijv. 'Amsterdam' of 'Falafel')"
+                placeholder="Search by name or location (e.g. 'Amsterdam' or 'Falafel')"
                 className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-orange-500 focus:border-transparent shadow-sm"
               />
               {searchQuery && (
@@ -76,7 +76,7 @@ export default function Spots({ spots, initialSearch = '' }: SpotsProps) {
         {/* Results Count */}
         {initialSearch && (
           <p className="text-gray-600 mb-4">
-            {spots.length} {spots.length === 1 ? 'resultaat' : 'resultaten'} gevonden voor "{initialSearch}"
+            {spots.length} {spots.length === 1 ? 'result' : 'results'} found for "{initialSearch}"
           </p>
         )}
         
@@ -92,7 +92,7 @@ export default function Spots({ spots, initialSearch = '' }: SpotsProps) {
           </div>
         ) : (
           <div className="text-center py-16">
-            <p className="text-gray-500 text-lg">Geen spots gevonden. Probeer een andere zoekopdracht.</p>
+            <p className="text-gray-500 text-lg">No spots found. Try a different search.</p>
           </div>
         )}
       </div>

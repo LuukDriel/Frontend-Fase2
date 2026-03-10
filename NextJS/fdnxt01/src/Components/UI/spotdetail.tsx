@@ -1,6 +1,9 @@
+'use client';
+
 import { Star, MapPin, Clock, Phone, Mail, ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 import ReviewCard from '../ReviewCard';
+import AddReviewForm from './addreviewform';
 import { SpotDetailData } from '@/types/spotdetail';
 
 interface SpotDetailProps {
@@ -176,11 +179,11 @@ export default function SpotDetail({ spot }: SpotDetailProps) {
                             </div>
                         </div>
 
-                        {/* Reviews */}
-                        {spot.reviews && spot.reviews.length > 0 && (
-                            <div>
-                                <h2 className="text-2xl font-bold text-gray-800 mb-6">Customer Reviews</h2>
-                                <div className="grid md:grid-cols-3 gap-6">
+                        {/* Reviews Section */}
+                        <div className="mb-10">
+                            <h2 className="text-2xl font-bold text-gray-800 mb-6">Customer Reviews</h2>
+                            {spot.reviews && spot.reviews.length > 0 ? (
+                                <div className="grid md:grid-cols-3 gap-6 mb-8">
                                     {spot.reviews.map((review: any, index: number) => (
                                         <ReviewCard 
                                             key={index}
@@ -191,8 +194,13 @@ export default function SpotDetail({ spot }: SpotDetailProps) {
                                         />
                                     ))}
                                 </div>
-                            </div>
-                        )}
+                            ) : (
+                                <p className="text-gray-600 mb-8">No reviews yet. Be the first to review!</p>
+                            )}
+                        </div>
+
+                        {/* Add Review Form */}
+                        <AddReviewForm spotId={spot.id} />
                     </div>
                 </div>
             </div>

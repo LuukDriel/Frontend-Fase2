@@ -14,7 +14,7 @@ export default function AddSpotForm() {
         soort_eten: '',
         locatie: '',
         omschrijving: '',
-        afbeelding_url: '/foodcar.jpg',
+        afbeelding_url: 'https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?w=800&h=600&fit=crop',
         tiktok_url: '',
         google_maps_url: ''
     });
@@ -56,10 +56,12 @@ export default function AddSpotForm() {
     };
     
     return (
-        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-            <h2 className="text-3xl font-bold bg-linear-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent mb-6">
-                Voeg Nieuwe Spot Toe
-            </h2>
+        <div className="min-h-screen w-full bg-linear-to-br from-orange-50 via-white to-amber-50 py-16 px-4">
+            <div className="container mx-auto">
+                <form onSubmit={handleSubmit} className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+                    <h2 className="text-3xl font-bold bg-linear-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent mb-6">
+                        Add New Spot
+                    </h2>
             
             {error && (
                 <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
@@ -68,11 +70,11 @@ export default function AddSpotForm() {
             )}
             
             <div className="space-y-5">
-                {/* Naam */}
+                {/* Name */}
                 <div>
                     <label htmlFor="naam" className="flex items-center gap-2 text-gray-700 font-medium mb-2">
                         <Store className="w-5 h-5 text-orange-500" />
-                        Naam *
+                        Name *
                     </label>
                     <input
                         type="text"
@@ -82,15 +84,15 @@ export default function AddSpotForm() {
                         value={formData.naam}
                         onChange={handleChange}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                        placeholder="Bijv. De Frites Meester"
+                        placeholder="e.g. De Frites Meester"
                     />
                 </div>
                 
-                {/* Soort Eten */}
+                {/* Food Type */}
                 <div>
                     <label htmlFor="soort_eten" className="flex items-center gap-2 text-gray-700 font-medium mb-2">
                         <Utensils className="w-5 h-5 text-orange-500" />
-                        Soort Eten *
+                        Food Type *
                     </label>
                     <input
                         type="text"
@@ -100,15 +102,15 @@ export default function AddSpotForm() {
                         value={formData.soort_eten}
                         onChange={handleChange}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                        placeholder="Bijv. Dutch Fries, Vietnamese, Turkish"
+                        placeholder="e.g. Dutch Fries, Vietnamese, Turkish"
                     />
                 </div>
                 
-                {/* Locatie */}
+                {/* Location */}
                 <div>
                     <label htmlFor="locatie" className="flex items-center gap-2 text-gray-700 font-medium mb-2">
                         <MapPin className="w-5 h-5 text-orange-500" />
-                        Locatie *
+                        Location *
                     </label>
                     <input
                         type="text"
@@ -118,15 +120,15 @@ export default function AddSpotForm() {
                         value={formData.locatie}
                         onChange={handleChange}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                        placeholder="Bijv. Dam Square, Amsterdam"
+                        placeholder="e.g. Dam Square, Amsterdam"
                     />
                 </div>
                 
-                {/* Omschrijving */}
+                {/* Description */}
                 <div>
                     <label htmlFor="omschrijving" className="flex items-center gap-2 text-gray-700 font-medium mb-2">
                         <FileText className="w-5 h-5 text-orange-500" />
-                        Omschrijving *
+                        Description *
                     </label>
                     <textarea
                         id="omschrijving"
@@ -136,15 +138,15 @@ export default function AddSpotForm() {
                         onChange={handleChange}
                         rows={4}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none"
-                        placeholder="Beschrijf de spot en wat ze serveren..."
+                        placeholder="Describe the spot and what they serve..."
                     />
                 </div>
                 
-                {/* Afbeelding URL */}
+                {/* Image URL */}
                 <div>
                     <label htmlFor="afbeelding_url" className="flex items-center gap-2 text-gray-700 font-medium mb-2">
                         <Image className="w-5 h-5 text-orange-500" />
-                        Afbeelding URL *
+                        Image URL *
                     </label>
                     <input
                         type="text"
@@ -154,8 +156,9 @@ export default function AddSpotForm() {
                         value={formData.afbeelding_url}
                         onChange={handleChange}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                        placeholder="/foodcar.jpg"
+                        placeholder="https://images.unsplash.com/photo-..."
                     />
+                    <p className="text-sm text-gray-500 mt-1">Tip: Use Unsplash for free food images</p>
                 </div>
                 
                 {/* TikTok URL (Optional) */}
@@ -199,16 +202,18 @@ export default function AddSpotForm() {
                     disabled={isSubmitting}
                     className="flex-1 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                    {isSubmitting ? 'Toevoegen...' : 'Spot Toevoegen'}
+                    {isSubmitting ? 'Adding...' : 'Add Spot'}
                 </button>
                 <button
                     type="button"
                     onClick={() => router.back()}
                     className="px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold rounded-full transition-all duration-200"
                 >
-                    Annuleren
+                    Cancel
                 </button>
             </div>
         </form>
+            </div>
+        </div>
     );
 }

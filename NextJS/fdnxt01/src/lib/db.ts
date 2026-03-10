@@ -197,3 +197,34 @@ export async function createSpot(spotData: {
     }
 }
 
+/**
+ * Insert a new review into the database
+ */
+export async function createReview(reviewData: {
+    spot_id: number | null;
+    rating: number;
+    text: string;
+    name: string;
+    location: string;
+}): Promise<number> {
+    const db = getDb();
+    
+    try {
+        const result = db.prepare(`
+            INSERT INTO reviews (spot_id, rating, text, name, location)
+            VALUES (?, ?, ?, ?, ?)
+        `).run(
+            reviewData.spot_id,
+            reviewData.rating,
+            reviewData.text,
+            reviewData.name,
+            reviewData.location
+        );
+        
+        return result.lastInsertRowid as number;
+    } finally {
+        db.close();
+    }
+}
+
+
