@@ -1,30 +1,16 @@
 import Link from 'next/link';
 import { MapPin, Store, UtensilsCrossed, Smartphone, Search, Map, Smile, Star } from 'lucide-react';
-import ReviewCard from './ReviewCard';
+import ReviewCard from '../ReviewCard';
+import SpotCard from '../SpotCard';
+import { SpotWithExtras } from '@/types/spot';
+import { Review } from '@/types/review';
 
-// This data can later be fetched from your database
-const reviews = [
-  {
-    rating: 5,
-    text: "This app helped me find the most amazing taco truck! The real-time location feature is a game changer.",
-    name: "Sarah K.",
-    location: "Amsterdam"
-  },
-  {
-    rating: 5,
-    text: "I love discovering new street food spots every weekend. This platform makes it so easy!",
-    name: "Michael R.",
-    location: "Rotterdam"
-  },
-  {
-    rating: 5,
-    text: "Best way to support local food vendors. The reviews are always spot on!",
-    name: "Emma L.",
-    location: "Utrecht"
-  }
-];
+interface HomepageProps {
+  reviews: Review[];
+  featuredSpots: SpotWithExtras[];
+}
 
-export default function Homepage() {
+export default function Homepage({ reviews, featuredSpots }: HomepageProps) {
   return (
     <div className="homepage min-h-screen w-full bg-linear-to-br from-orange-50 via-white to-amber-50 relative overflow-hidden">
       {/* Background Elements */}
@@ -239,89 +225,12 @@ export default function Homepage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {/* Spot Card 1 */}
-            <div className="bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src="/foodcar.jpg" 
-                  alt="Tasty Tacos Food Truck" 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-full text-sm font-semibold text-orange-600 shadow-md flex items-center gap-1">
-                  <Star className="w-4 h-4 fill-orange-500 text-orange-500" /> 4.9
-                </div>
-              </div>
-              <div className="p-5">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">Tasty Tacos</h3>
-                <p className="text-gray-600 text-sm mb-3">Authentic Mexican street food with a modern twist</p>
-                <div className="flex items-center text-gray-500 text-sm mb-4">
-                  <MapPin className="w-4 h-4 mr-1" />
-                  <span>Amsterdam Center</span>
-                </div>
-                <Link 
-                  href="/pages/spots"
-                  className="block w-full text-center px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-full shadow-sm hover:shadow-md transition-all duration-200"
-                >
-                  View Details
-                </Link>
-              </div>
-            </div>
-
-            {/* Spot Card 2 */}
-            <div className="bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src="/foodcar.jpg" 
-                  alt="Sizzling Skewers Stand" 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-full text-sm font-semibold text-orange-600 shadow-md flex items-center gap-1">
-                  <Star className="w-4 h-4 fill-orange-500 text-orange-500" /> 4.8
-                </div>
-              </div>
-              <div className="p-5">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">Sizzling Skewers</h3>
-                <p className="text-gray-600 text-sm mb-3">Grilled to perfection, our skewers are a must-try!</p>
-                <div className="flex items-center text-gray-500 text-sm mb-4">
-                  <MapPin className="w-4 h-4 mr-1" />
-                  <span>Rotterdam Market</span>
-                </div>
-                <Link 
-                  href="/pages/spots"
-                  className="block w-full text-center px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-full shadow-sm hover:shadow-md transition-all duration-200"
-                >
-                  View Details
-                </Link>
-              </div>
-            </div>
-
-            {/* Spot Card 3 */}
-            <div className="bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group">
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src="/foodcar.jpg" 
-                  alt="Sweet Treats Cart" 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-full text-sm font-semibold text-orange-600 shadow-md flex items-center gap-1">
-                  <Star className="w-4 h-4 fill-orange-500 text-orange-500" /> 4.7
-                </div>
-              </div>
-              <div className="p-5">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">Sweet Treats</h3>
-                <p className="text-gray-600 text-sm mb-3">Indulge in delicious desserts and sweet snacks</p>
-                <div className="flex items-center text-gray-500 text-sm mb-4">
-                  <MapPin className="w-4 h-4 mr-1" />
-                  <span>Utrecht Square</span>
-                </div>
-                <Link 
-                  href="/pages/spots"
-                  className="block w-full text-center px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-full shadow-sm hover:shadow-md transition-all duration-200"
-                >
-                  View Details
-                </Link>
-              </div>
-            </div>
+            {featuredSpots.map((spot) => (
+              <SpotCard 
+                key={spot.id}
+                spot={spot}
+              />
+            ))}
           </div>
 
           <div className="text-center mt-10">
