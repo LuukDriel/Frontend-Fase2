@@ -34,13 +34,13 @@ export default function Layout({ children }: LayoutProps) {
                                 Spots
                             </Link>
                             <Link
-                                href="/about"
+                                href="/pages/about"
                                 className="text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
                             >
                                 About Us
                             </Link>
                             <Link
-                                href="/contact"
+                                href="/pages/contact"
                                 className="text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
                             >
                                 Contact
@@ -111,12 +111,12 @@ export default function Layout({ children }: LayoutProps) {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/about" className="text-gray-400 hover:text-orange-400 transition-colors">
+                                    <Link href="/pages/about" className="text-gray-400 hover:text-orange-400 transition-colors">
                                         About us
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/contact" className="text-gray-400 hover:text-orange-400 transition-colors">
+                                    <Link href="/pages/contact" className="text-gray-400 hover:text-orange-400 transition-colors">
                                         Contact
                                     </Link>
                                 </li>
@@ -149,10 +149,10 @@ export default function Layout({ children }: LayoutProps) {
                     <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
                         <p>&copy; 2026 Streetfoodspotter. All rights reserved.</p>
                         <div className="flex space-x-6 mt-4 md:mt-0">
-                            <Link href="/privacy" className="hover:text-orange-400 transition-colors">
+                            <Link href="/pages/privacy" className="hover:text-orange-400 transition-colors">
                                 Privacy Policy
                             </Link>
-                            <Link href="/terms" className="hover:text-orange-400 transition-colors">
+                            <Link href="/pages/terms" className="hover:text-orange-400 transition-colors">
                                 Terms
                             </Link>
                         </div>

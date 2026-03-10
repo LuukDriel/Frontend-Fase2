@@ -1,4 +1,28 @@
 import Link from 'next/link';
+import { MapPin, Store, UtensilsCrossed, Smartphone, Search, Map, Smile, Star } from 'lucide-react';
+import ReviewCard from './ReviewCard';
+
+// This data can later be fetched from your database
+const reviews = [
+  {
+    rating: 5,
+    text: "This app helped me find the most amazing taco truck! The real-time location feature is a game changer.",
+    name: "Sarah K.",
+    location: "Amsterdam"
+  },
+  {
+    rating: 5,
+    text: "I love discovering new street food spots every weekend. This platform makes it so easy!",
+    name: "Michael R.",
+    location: "Rotterdam"
+  },
+  {
+    rating: 5,
+    text: "Best way to support local food vendors. The reviews are always spot on!",
+    name: "Emma L.",
+    location: "Utrecht"
+  }
+];
 
 export default function Homepage() {
   return (
@@ -47,7 +71,7 @@ export default function Homepage() {
           {/* Search Bar */}
           <div className="bg-white rounded-2xl shadow-2xl p-2 flex flex-col sm:flex-row gap-2 items-stretch sm:items-center w-full max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
             <div className="flex-1 flex items-center gap-3 px-4 py-3">
-              <span className="text-gray-400 text-xl">📍</span>
+              <MapPin className="text-gray-400 w-5 h-5" />
               <input 
                 type="text" 
                 placeholder="Enter your location or cuisine type..."
@@ -65,15 +89,15 @@ export default function Homepage() {
           {/* Feature Pills */}
           <div className="flex flex-wrap gap-3 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500">
             <div className="flex items-center gap-2 px-5 py-3 bg-white/80 backdrop-blur-sm text-gray-700 rounded-xl text-sm font-medium shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200 border border-orange-100">
-              <span className="text-xl">🍔</span>
+              <Store className="w-5 h-5 text-orange-500" />
               <span>500+ Local Vendors</span>
             </div>
             <div className="flex items-center gap-2 px-5 py-3 bg-white/80 backdrop-blur-sm text-gray-700 rounded-xl text-sm font-medium shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200 border border-orange-100">
-              <span className="text-xl">🌮</span>
+              <UtensilsCrossed className="w-5 h-5 text-orange-500" />
               <span>Authentic Cuisines</span>
             </div>
             <div className="flex items-center gap-2 px-5 py-3 bg-white/80 backdrop-blur-sm text-gray-700 rounded-xl text-sm font-medium shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200 border border-orange-100">
-              <span className="text-xl">📱</span>
+              <Smartphone className="w-5 h-5 text-orange-500" />
               <span>Live Tracking</span>
             </div>
           </div>
@@ -126,8 +150,8 @@ export default function Homepage() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             <div className="text-center space-y-4 group">
-              <div className="w-20 h-20 mx-auto bg-linear-to-br from-orange-100 to-amber-100 rounded-full flex items-center justify-center text-4xl group-hover:scale-110 transition-transform duration-200 shadow-md">
-                🔍
+              <div className="w-20 h-20 mx-auto bg-linear-to-br from-orange-100 to-amber-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200 shadow-md">
+                <Search className="w-10 h-10 text-orange-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-800">1. Search</h3>
               <p className="text-gray-600">
@@ -136,8 +160,8 @@ export default function Homepage() {
             </div>
 
             <div className="text-center space-y-4 group">
-              <div className="w-20 h-20 mx-auto bg-linear-to-br from-orange-100 to-amber-100 rounded-full flex items-center justify-center text-4xl group-hover:scale-110 transition-transform duration-200 shadow-md">
-                🗺️
+              <div className="w-20 h-20 mx-auto bg-linear-to-br from-orange-100 to-amber-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200 shadow-md">
+                <Map className="w-10 h-10 text-orange-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-800">2. Discover</h3>
               <p className="text-gray-600">
@@ -146,8 +170,8 @@ export default function Homepage() {
             </div>
 
             <div className="text-center space-y-4 group">
-              <div className="w-20 h-20 mx-auto bg-linear-to-br from-orange-100 to-amber-100 rounded-full flex items-center justify-center text-4xl group-hover:scale-110 transition-transform duration-200 shadow-md">
-                😋
+              <div className="w-20 h-20 mx-auto bg-linear-to-br from-orange-100 to-amber-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200 shadow-md">
+                <Smile className="w-10 h-10 text-orange-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-800">3. Enjoy</h3>
               <p className="text-gray-600">
@@ -223,15 +247,15 @@ export default function Homepage() {
                   alt="Tasty Tacos Food Truck" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
-                <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-full text-sm font-semibold text-orange-600 shadow-md">
-                  ⭐ 4.9
+                <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-full text-sm font-semibold text-orange-600 shadow-md flex items-center gap-1">
+                  <Star className="w-4 h-4 fill-orange-500 text-orange-500" /> 4.9
                 </div>
               </div>
               <div className="p-5">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">Tasty Tacos</h3>
                 <p className="text-gray-600 text-sm mb-3">Authentic Mexican street food with a modern twist</p>
                 <div className="flex items-center text-gray-500 text-sm mb-4">
-                  <span className="mr-1">📍</span>
+                  <MapPin className="w-4 h-4 mr-1" />
                   <span>Amsterdam Center</span>
                 </div>
                 <Link 
@@ -251,15 +275,15 @@ export default function Homepage() {
                   alt="Sizzling Skewers Stand" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
-                <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-full text-sm font-semibold text-orange-600 shadow-md">
-                  ⭐ 4.8
+                <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-full text-sm font-semibold text-orange-600 shadow-md flex items-center gap-1">
+                  <Star className="w-4 h-4 fill-orange-500 text-orange-500" /> 4.8
                 </div>
               </div>
               <div className="p-5">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">Sizzling Skewers</h3>
                 <p className="text-gray-600 text-sm mb-3">Grilled to perfection, our skewers are a must-try!</p>
                 <div className="flex items-center text-gray-500 text-sm mb-4">
-                  <span className="mr-1">📍</span>
+                  <MapPin className="w-4 h-4 mr-1" />
                   <span>Rotterdam Market</span>
                 </div>
                 <Link 
@@ -279,15 +303,15 @@ export default function Homepage() {
                   alt="Sweet Treats Cart" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
-                <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-full text-sm font-semibold text-orange-600 shadow-md">
-                  ⭐ 4.7
+                <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-full text-sm font-semibold text-orange-600 shadow-md flex items-center gap-1">
+                  <Star className="w-4 h-4 fill-orange-500 text-orange-500" /> 4.7
                 </div>
               </div>
               <div className="p-5">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">Sweet Treats</h3>
                 <p className="text-gray-600 text-sm mb-3">Indulge in delicious desserts and sweet snacks</p>
                 <div className="flex items-center text-gray-500 text-sm mb-4">
-                  <span className="mr-1">📍</span>
+                  <MapPin className="w-4 h-4 mr-1" />
                   <span>Utrecht Square</span>
                 </div>
                 <Link 
@@ -322,38 +346,15 @@ export default function Homepage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            <div className="bg-linear-to-br from-orange-50 to-amber-50 rounded-2xl p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-200">
-              <div className="flex items-center mb-4">
-                <div className="text-2xl mr-2">⭐⭐⭐⭐⭐</div>
-              </div>
-              <p className="text-gray-700 mb-4 italic">
-                "This app helped me find the most amazing taco truck! The real-time location feature is a game changer."
-              </p>
-              <div className="font-semibold text-gray-800">Sarah K.</div>
-              <div className="text-sm text-gray-600">Amsterdam</div>
-            </div>
-
-            <div className="bg-linear-to-br from-orange-50 to-amber-50 rounded-2xl p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-200">
-              <div className="flex items-center mb-4">
-                <div className="text-2xl mr-2">⭐⭐⭐⭐⭐</div>
-              </div>
-              <p className="text-gray-700 mb-4 italic">
-                "I love discovering new street food spots every weekend. This platform makes it so easy!"
-              </p>
-              <div className="font-semibold text-gray-800">Michael R.</div>
-              <div className="text-sm text-gray-600">Rotterdam</div>
-            </div>
-
-            <div className="bg-linear-to-br from-orange-50 to-amber-50 rounded-2xl p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-200">
-              <div className="flex items-center mb-4">
-                <div className="text-2xl mr-2">⭐⭐⭐⭐⭐</div>
-              </div>
-              <p className="text-gray-700 mb-4 italic">
-                "Best way to support local food vendors. The reviews are always spot on!"
-              </p>
-              <div className="font-semibold text-gray-800">Emma L.</div>
-              <div className="text-sm text-gray-600">Utrecht</div>
-            </div>
+            {reviews.map((review, index) => (
+              <ReviewCard 
+                key={index}
+                rating={review.rating}
+                text={review.text}
+                name={review.name}
+                location={review.location}
+              />
+            ))}
           </div>
         </div>
       </div>

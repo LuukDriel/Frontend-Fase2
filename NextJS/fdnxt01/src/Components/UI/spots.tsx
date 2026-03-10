@@ -13,7 +13,7 @@ export default function Spots() {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
                 <img src="/foodcar.jpg" alt="Food Spot" className="w-full h-48 object-cover"/>
                 <div className="p-4">
-                    <h2 className="text-xl font-semibold mb-2">Tasty Tacos</h2>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-2">Tasty Tacos</h2>
                     <p className="text-gray-600 text-sm mb-4">Authentic Mexican street food with a modern twist.</p>
                     <button className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-full shadow-sm hover:shadow-md transition-all duration-200">
                         View Details
@@ -23,7 +23,7 @@ export default function Spots() {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
                 <img src="/foodcar.jpg" alt="Food Spot" className="w-full h-48 object-cover"/>
                 <div className="p-4">
-                    <h2 className="text-xl font-semibold mb-2">Sizzling Skewers</h2>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-2">Sizzling Skewers</h2>
                     <p className="text-gray-600 text-sm mb-4">Grilled to perfection, our skewers are a must-try!</p>
                     <button className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-full shadow-sm hover:shadow-md transition-all duration-200">
                         View Details
@@ -33,7 +33,7 @@ export default function Spots() {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
                 <img src="/foodcar.jpg" alt="Food Spot" className="w-full h-48 object-cover"/>
                 <div className="p-4">
-                    <h2 className="text-xl font-semibold mb-2">Sweet Treats</h2>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-2">Sweet Treats</h2>
                     <p className="text-gray-600 text-sm mb-4">Indulge in our delicious desserts and sweet snacks.</p>
                     <button className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-full shadow-sm hover:shadow-md transition-all duration-200">
                         View Details

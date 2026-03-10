@@ -1,8 +1,5 @@
-import Image from "next/image";
-import Page from "@/Components/UI/spots";
+import Spots from "@/Components/UI/spots";
 
-export default function spots() {
-  return (
-    <Page/>
-  );
+export default function SpotsPage() {
+  return <Spots />;
 }
