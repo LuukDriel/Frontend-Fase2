@@ -5,7 +5,6 @@ export async function POST(request: Request) {
     try {
         const body = await request.json();
         
-        // Validate required fields
         const { naam, soort_eten, locatie, omschrijving, afbeelding_url } = body;
         
         if (!naam || !soort_eten || !locatie || !omschrijving || !afbeelding_url) {
@@ -15,7 +14,6 @@ export async function POST(request: Request) {
             );
         }
         
-        // Insert spot into database
         const spotId = await createSpot({
             naam,
             soort_eten,

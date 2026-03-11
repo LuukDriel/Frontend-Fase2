@@ -5,7 +5,6 @@ export async function POST(request: Request) {
     try {
         const body = await request.json();
         
-        // Validate required fields
         const { spot_id, rating, text, name, location } = body;
         
         if (!rating || !text || !name || !location) {
@@ -15,7 +14,6 @@ export async function POST(request: Request) {
             );
         }
         
-        // Validate rating is between 1 and 5
         if (rating < 1 || rating > 5) {
             return NextResponse.json(
                 { error: 'Rating must be between 1 and 5' },
@@ -23,9 +21,8 @@ export async function POST(request: Request) {
             );
         }
         
-        // Insert review into database
         const reviewId = await createReview({
-            spot_id: spot_id || null,
+            spot_id: spot_id,
             rating: parseInt(rating),
             text,
             name,

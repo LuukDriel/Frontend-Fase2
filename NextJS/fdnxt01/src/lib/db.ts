@@ -1,29 +1,15 @@
-/**
- * Database utility functions
- * Handles SQLite database connections and queries
- */
-
 import Database from 'better-sqlite3';
 import path from 'path';
 import { SpotWithExtras } from '@/types/spot';
 import { Review } from '@/types/review';
 import { SpotDetailData } from '@/types/spotdetail';
 
-// Database file path
 const DB_PATH = path.join(process.cwd(), 'spots.db');
 
-/**
- * Get a database connection
- * Remember to call db.close() when done!
- */
 function getDb() {
     return new Database(DB_PATH);
 }
 
-/**
- * Get all spots with ratings from reviews
- * Supports optional search by name or city
- */
 export async function getSpots(searchQuery?: string): Promise<SpotWithExtras[]> {
     const db = getDb();
     
@@ -54,9 +40,6 @@ export async function getSpots(searchQuery?: string): Promise<SpotWithExtras[]> 
     }
 }
 
-/**
- * Get featured spots (top 3 by rating)
- */
 export async function getFeaturedSpots(): Promise<SpotWithExtras[]> {
     const db = getDb();
     
@@ -79,9 +62,6 @@ export async function getFeaturedSpots(): Promise<SpotWithExtras[]> {
     }
 }
 
-/**
- * Get general app reviews (where spot_id is NULL)
- */
 export async function getGeneralReviews(limit: number = 3): Promise<Review[]> {
     const db = getDb();
     
@@ -99,9 +79,6 @@ export async function getGeneralReviews(limit: number = 3): Promise<Review[]> {
     }
 }
 
-/**
- * Get reviews for a specific spot
- */
 export async function getSpotReviews(spotId: number): Promise<Review[]> {
     const db = getDb();
     
@@ -118,33 +95,26 @@ export async function getSpotReviews(spotId: number): Promise<Review[]> {
     }
 }
 
-/**
- * Get spot detail by ID with all related data
- */
 export async function getSpotById(spotId: number): Promise<SpotDetailData | null> {
     const db = getDb();
     
     try {
-        // Get spot details
         const spot = db.prepare('SELECT * FROM spots WHERE id = ?').get(spotId);
         
         if (!spot) {
             return null;
         }
         
-        // Get reviews for this spot
         const reviews = db.prepare(`
             SELECT * FROM reviews 
             WHERE spot_id = ? 
             ORDER BY created_at DESC
         `).all(spotId) as Review[];
         
-        // Calculate average rating
         const avgRating = reviews.length > 0 
             ? reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length 
             : 0;
         
-        // Convert reviews to format expected by component
         const formattedReviews = reviews.map(r => ({
             rating: r.rating,
             text: r.text,
@@ -163,9 +133,6 @@ export async function getSpotById(spotId: number): Promise<SpotDetailData | null
     }
 }
 
-/**
- * Insert a new spot into the database
- */
 export async function createSpot(spotData: {
     naam: string;
     soort_eten: string;
@@ -197,9 +164,6 @@ export async function createSpot(spotData: {
     }
 }
 
-/**
- * Insert a new review into the database
- */
 export async function createReview(reviewData: {
     spot_id: number | null;
     rating: number;
