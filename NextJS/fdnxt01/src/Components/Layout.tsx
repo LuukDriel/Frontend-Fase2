@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ReactNode, useState } from 'react';
 
 interface LayoutProps {
@@ -9,6 +10,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const pathname = usePathname();
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -27,25 +29,41 @@ export default function Layout({ children }: LayoutProps) {
                         <div className="hidden md:flex items-center space-x-8">
                             <Link
                                 href="/"
-                                className="text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
+                                className={`font-medium transition-colors duration-200 ${
+                                    pathname === '/' 
+                                        ? 'text-orange-600 font-bold border-b-2 border-orange-600' 
+                                        : 'text-gray-700 hover:text-orange-600'
+                                }`}
                             >
                                 Home
                             </Link>
                             <Link
                                 href="/pages/spots"
-                                className="text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
+                                className={`font-medium transition-colors duration-200 ${
+                                    pathname?.startsWith('/pages/spots') 
+                                        ? 'text-orange-600 font-bold border-b-2 border-orange-600' 
+                                        : 'text-gray-700 hover:text-orange-600'
+                                }`}
                             >
                                 Spots
                             </Link>
                             <Link
                                 href="/pages/about"
-                                className="text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
+                                className={`font-medium transition-colors duration-200 ${
+                                    pathname === '/pages/about' 
+                                        ? 'text-orange-600 font-bold border-b-2 border-orange-600' 
+                                        : 'text-gray-700 hover:text-orange-600'
+                                }`}
                             >
                                 About Us
                             </Link>
                             <Link
                                 href="/pages/contact"
-                                className="text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
+                                className={`font-medium transition-colors duration-200 ${
+                                    pathname === '/pages/contact' 
+                                        ? 'text-orange-600 font-bold border-b-2 border-orange-600' 
+                                        : 'text-gray-700 hover:text-orange-600'
+                                }`}
                             >
                                 Contact
                             </Link>
@@ -104,28 +122,44 @@ export default function Layout({ children }: LayoutProps) {
                         <div className="md:hidden mt-4 pb-4 space-y-4">
                             <Link
                                 href="/"
-                                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
+                                className={`block font-medium transition-colors duration-200 ${
+                                    pathname === '/' 
+                                        ? 'text-orange-600 font-bold' 
+                                        : 'text-gray-700 hover:text-orange-600'
+                                }`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Home
                             </Link>
                             <Link
                                 href="/pages/spots"
-                                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
+                                className={`block font-medium transition-colors duration-200 ${
+                                    pathname?.startsWith('/pages/spots') 
+                                        ? 'text-orange-600 font-bold' 
+                                        : 'text-gray-700 hover:text-orange-600'
+                                }`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Spots
                             </Link>
                             <Link
                                 href="/pages/about"
-                                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
+                                className={`block font-medium transition-colors duration-200 ${
+                                    pathname === '/pages/about' 
+                                        ? 'text-orange-600 font-bold' 
+                                        : 'text-gray-700 hover:text-orange-600'
+                                }`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 About Us
                             </Link>
                             <Link
                                 href="/pages/contact"
-                                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
+                                className={`block font-medium transition-colors duration-200 ${
+                                    pathname === '/pages/contact' 
+                                        ? 'text-orange-600 font-bold' 
+                                        : 'text-gray-700 hover:text-orange-600'
+                                }`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Contact

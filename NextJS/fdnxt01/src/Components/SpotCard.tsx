@@ -28,7 +28,7 @@ export default function SpotCard({
     const href = `/pages/spots/${spot.id}`;
     
     return (
-        <div className="bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+        <div className="bg-white rounded-2xl shadow-md hover:shadow-2xl transform transition-all duration-300 hover:scale-105 hover:rotate-1 overflow-hidden group">
             <div className="relative h-48 overflow-hidden">
                 <img 
                     src={spot.afbeelding_url} 
