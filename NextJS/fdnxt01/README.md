@@ -1,8 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Spots & Reviews App
+
+A Next.js application for discovering and reviewing spots. Built with TypeScript, Tailwind CSS, and SQLite.
+
+## Features
+
+- **Browse Spots**: View a collection of spots with details and images
+- **Spot Details**: See comprehensive information about each spot
+- **Add Spots**: Contribute new spots to the collection
+- **Reviews System**: Read and write reviews for spots
+- **About & Contact Pages**: Learn more about the project and get in touch
+
+## Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Database**: [better-sqlite3](https://github.com/WiseLibs/better-sqlite3)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Runtime**: React 19
+
+## Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── pages/             # Application pages
+│   │   ├── about/        # About page
+│   │   ├── contact/      # Contact page
+│   │   └── spots/        # Spots pages
+│   │       ├── [spot]/   # Dynamic spot detail page
+│   │       └── add/      # Add new spot page
+│   └── api/              # API routes
+│       ├── reviews/      # Reviews API
+│       └── spots/        # Spots API
+├── Components/           # React components
+│   ├── UI/              # UI components
+│   │   ├── homepage.tsx
+│   │   ├── spots.tsx
+│   │   ├── spotdetail.tsx
+│   │   ├── addspotform.tsx
+│   │   ├── addreviewform.tsx
+│   │   ├── about.tsx
+│   │   └── contact.tsx
+│   ├── Layout.tsx       # Main layout component
+│   ├── SpotCard.tsx     # Card component for spots
+│   └── ReviewCard.tsx   # Card component for reviews
+├── lib/                 # Utilities
+│   └── db.ts           # Database configuration
+└── types/              # TypeScript type definitions
+    ├── spot.ts
+    ├── spotdetail.ts
+    └── review.ts
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20 or higher
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd fdnxt01
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+### Development
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -14,23 +91,58 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The app will auto-reload when you make changes to the code.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Build
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+### Production
+
+Run the production server:
+
+```bash
+npm run start
+```
+
+## API Routes
+
+### Spots API
+- `GET /api/spots` - Retrieve all spots
+- `POST /api/spots` - Create a new spot
+
+### Reviews API
+- `GET /api/reviews` - Retrieve reviews
+- `POST /api/reviews` - Create a new review
+
+## Pages
+
+- **Home** (`/`) - Welcome page with overview
+- **Spots** (`/pages/spots`) - Browse all spots
+- **Spot Detail** (`/pages/spots/[spot]`) - View individual spot details
+- **Add Spot** (`/pages/spots/add`) - Add a new spot
+- **About** (`/pages/about`) - Information about the project
+- **Contact** (`/pages/contact`) - Contact page
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about the technologies used:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Documentation](https://nextjs.org/docs) - Next.js features and API
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/) - TypeScript guide
+- [Tailwind CSS](https://tailwindcss.com/docs) - Tailwind CSS utility classes
+- [better-sqlite3](https://github.com/WiseLibs/better-sqlite3/wiki/API) - SQLite API
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
+Deploy your Next.js app to [Vercel](https://vercel.com/new):
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=<repository-url>)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For more deployment options, check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
